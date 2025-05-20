@@ -1,92 +1,50 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Card } from './components/ui/card';
-import { MessageCircle, Shield, Globe, Heart, ArrowRight, Menu, X } from 'lucide-react';
+import { Shield, Globe, Heart, ArrowRight } from 'lucide-react';
 import IconImage from './assets/Icon.png';
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
+import { Helmet } from 'react-helmet-async'; // Make sure to use React Helmet Async for better performance
 
 const LandingPage = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-
-  // Handle scroll for navbar styling
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-    };
-    
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
-
-  // Close menu when clicking outside
-  useEffect(() => {
-    const closeMenu = (e) => {
-      if (isMenuOpen && !e.target.closest('nav') && !e.target.closest('.mobile-menu')) {
-        setIsMenuOpen(false);
-      }
-    };
-    
-    document.addEventListener('click', closeMenu);
-    return () => document.removeEventListener('click', closeMenu);
-  }, [isMenuOpen]);
-
   return (
     <div className="bg-gradient-to-br from-pink-500 via-rose-500 to-orange-400 min-h-screen">
-      {/* Navigation - Optimized with transition effects */}
-      <nav className={`px-4 py-3 md:px-8 lg:px-16 flex justify-between items-center sticky top-0 z-50 transition-all duration-300 ${scrolled ? 'bg-pink-600 bg-opacity-90 backdrop-blur-sm shadow-md' : ''}`}>
-        <div className="flex items-center">
-          <img src={IconImage} alt="Icon" className="mr-2 w-5 h-5" />
-          <span className="text-white font-bold text-lg">Unknown Chat Bot</span>
-        </div>
+      {/* SEO Helmet Tags */}
+      <Helmet>
+        {/* Primary Meta Tags */}
+        <title>Unknown Chat Bot | Anonymous Random Chats on Telegram</title>
+        <meta name="title" content="Unknown Chat Bot | Anonymous Random Chats on Telegram" />
+        <meta name="description" content="Connect with random people worldwide for anonymous chats. No sign-up needed, select opposite gender preference for free. Private, secure, and instant connections on Telegram." />
         
-        {/* Desktop Navigation */}
-        <div className="hidden md:flex space-x-6">
-          <a href="#features" className="text-white hover:text-pink-100 transition text-sm">Features</a>
-          <a href="#how-it-works" className="text-white hover:text-pink-100 transition text-sm">How It Works</a>
-          <a href="#faq" className="text-white hover:text-pink-100 transition text-sm">FAQ</a>
-        </div>
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://unknownchatbot.vercel.app/" />
+        <meta property="og:title" content="Unknown Chat Bot | Meet New People Anonymously" />
+        <meta property="og:description" content="Connect with random people worldwide for anonymous chats. No login, complete privacy, and free opposite gender preference." />
+        <meta property="og:image" content="/og-image.jpg" />
         
-        {/* Mobile Menu Button */}
-        <button 
-          className="md:hidden text-white p-1 rounded-md hover:bg-pink-600 hover:bg-opacity-50 transition" 
-          onClick={toggleMenu}
-          aria-label="Toggle menu"
-        >
-          {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
-        </button>
-      </nav>
-      
-      {/* Improved Mobile Menu with animation */}
-      {isMenuOpen && (
-        <div className="mobile-menu md:hidden bg-pink-600 bg-opacity-90 backdrop-blur-lg p-3 absolute z-40 w-full shadow-lg animate-fadeIn">
-          <div className="flex flex-col space-y-3 text-sm">
-            <a 
-              href="#features" 
-              className="text-white hover:bg-pink-500 hover:bg-opacity-50 p-2 rounded-md transition" 
-              onClick={toggleMenu}
-            >
-              Features
-            </a>
-            <a 
-              href="#how-it-works" 
-              className="text-white hover:bg-pink-500 hover:bg-opacity-50 p-2 rounded-md transition" 
-              onClick={toggleMenu}
-            >
-              How It Works
-            </a>
-            <a 
-              href="#faq" 
-              className="text-white hover:bg-pink-500 hover:bg-opacity-50 p-2 rounded-md transition" 
-              onClick={toggleMenu}
-            >
-              FAQ
-            </a>
-          </div>
-        </div>
-      )}
+        {/* Twitter */}
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://unknownchatbot.vercel.app/" />
+        <meta property="twitter:title" content="Unknown Chat Bot | Anonymous Random Chats on Telegram" />
+        <meta property="twitter:description" content="Connect with random people worldwide for anonymous chats. No login, complete privacy, and free opposite gender preference." />
+        <meta property="twitter:image" content="/twitter-image.jpg" />
+        
+        {/* Additional SEO Tags */}
+        <meta name="keywords" content="anonymous chat, telegram bot, random chat, stranger chat, private messaging, anonymous messaging, online chat, global connections, meet new people, chat bot" />
+        <meta name="robots" content="index, follow" />
+        <meta name="language" content="English" />
+        <meta name="author" content="Unknown Chat Bot" />
+        
+        {/* Canonical URL */}
+        <link rel="canonical" href="https://unknownchatbot.vercel.app/" />
+        
+        {/* Favicon */}
+        <link rel="icon" href="/favicon.ico" />
+      </Helmet>
+
+      {/* Navigation */}
+      <Navbar />
 
       {/* Hero Section - 15% smaller components */}
       <section className="px-3 py-5 md:py-12 lg:py-14 flex flex-col md:flex-row items-center justify-between max-w-6xl mx-auto -mt-10">
@@ -288,33 +246,8 @@ const LandingPage = () => {
         </div>
       </section>
 
-      {/* Footer - 15% smaller components */}
-      <footer className="bg-gray-900 text-white py-7 px-4">
-        <div className="max-w-6xl mx-auto">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="flex items-center mb-4 md:mb-0">
-              <img src={IconImage} alt="Icon" className="mr-2 w-5 h-5" />
-              <span className="font-bold text-lg">Unknown Chat Bot</span>
-            </div>
-            
-            <div className="flex space-x-6">
-              <a href="#" className="hover:text-pink-300 transition text-sm">Privacy Policy</a>
-              <a href="#" className="hover:text-pink-300 transition text-sm">Terms of Service</a>
-              <a href="#" className="hover:text-pink-300 transition text-sm">Contact</a>
-            </div>
-          </div>
-          
-          <div className="mt-5 mb-3 text-gray-400 text-xs max-w-4xl mx-auto text-center">
-            <p>Disclaimer: While we value your privacy and employ end-to-end encryption for all conversations, 
-              chats may be monitored by administrators or authorities if suspicious activity is detected. 
-              Illegal content or behavior will not be tolerated and may be reported to relevant authorities.</p>
-          </div>
-          
-          <div className="mt-5 text-center md:text-left text-gray-400 text-xs">
-            <p>© {new Date().getFullYear()} Unknown Chat Bot. All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
+      {/* Footer */}
+      <Footer />
     </div>
   );
 };
