@@ -15,29 +15,29 @@ const LandingPage = () => {
     <div className="bg-gradient-to-br from-pink-500 via-rose-500 to-orange-400 min-h-screen">
       {/* SEO Helmet Tags */}
       <Helmet>
-        {/* Primary Meta Tags */}
+        {/* HTML Meta Tags */}
         <title>Unknown Chat Bot | Anonymous Random Chats on Telegram</title>
-        <meta name="title" content="Unknown Chat Bot | Anonymous Random Chats on Telegram" />
         <meta name="description" content="Connect with random people worldwide for anonymous chats. No sign-up needed, select opposite gender preference for free. Private, secure, and instant connections on Telegram." />
-        
-        {/* Open Graph / Facebook */}
-        <meta property="og:type" content="website" />
+
+        {/* Facebook Meta Tags */}
         <meta property="og:url" content={baseUrl} />
+        <meta property="og:type" content="website" />
         <meta property="og:title" content="Unknown Chat Bot | Anonymous Random Chats on Telegram" />
         <meta property="og:description" content="Connect with random people worldwide for anonymous chats. No sign-up needed, select opposite gender preference for free. Private, secure, and instant connections." />
         <meta property="og:image" content={ogImageUrl} />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
-        <meta property="og:site_name" content="Unknown Chat Bot" />
         
-        {/* Twitter */}
+        {/* Twitter Meta Tags */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:url" content={baseUrl} />
+        <meta property="twitter:domain" content="unknownchatbot.vercel.app" />
+        <meta property="twitter:url" content={baseUrl} />
         <meta name="twitter:title" content="Unknown Chat Bot | Anonymous Random Chats on Telegram" />
         <meta name="twitter:description" content="Connect with random people worldwide for anonymous chats. No sign-up, no tracking, just instant conversations with complete privacy." />
         <meta name="twitter:image" content={ogImageUrl} />
         
         {/* Additional Meta Tags */}
+        <meta property="og:site_name" content="Unknown Chat Bot" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
         <meta property="og:image:type" content="image/jpeg" />
         <meta property="og:locale" content="en_US" />
         <meta property="og:image:alt" content="Unknown Chat Bot - Anonymous Conversations on Telegram" />
