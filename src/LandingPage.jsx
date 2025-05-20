@@ -4,7 +4,7 @@ import { Shield, Globe, Heart, ArrowRight } from 'lucide-react';
 import IconImage from './assets/Icon.png';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import { Helmet } from 'react-helmet-async';
+import { Helmet } from 'react-helmet';
 
 const LandingPage = () => {
   // Define base URL with trailing slash
