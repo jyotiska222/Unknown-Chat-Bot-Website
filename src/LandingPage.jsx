@@ -4,11 +4,12 @@ import { Shield, Globe, Heart, ArrowRight } from 'lucide-react';
 import IconImage from './assets/Icon.png';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import { Helmet } from 'react-helmet-async'; // Make sure to use React Helmet Async for better performance
+import { Helmet } from 'react-helmet-async';
 
 const LandingPage = () => {
   // Define base URL with trailing slash
-  const baseUrl = "https://unknownchatbot.vercel.app";
+  const baseUrl = "https://unknownchatbot.vercel.app/";
+  const ogImageUrl = "https://unknownchatbot.vercel.app/og-image.jpg";
   
   return (
     <div className="bg-gradient-to-br from-pink-500 via-rose-500 to-orange-400 min-h-screen">
@@ -24,7 +25,7 @@ const LandingPage = () => {
         <meta property="og:url" content={baseUrl} />
         <meta property="og:title" content="Unknown Chat Bot | Anonymous Random Chats on Telegram" />
         <meta property="og:description" content="Connect with random people worldwide for anonymous chats. No sign-up needed, select opposite gender preference for free. Private, secure, and instant connections." />
-        <meta property="og:image" content={`${baseUrl}/og-image.jpg`} />
+        <meta property="og:image" content={ogImageUrl} />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:site_name" content="Unknown Chat Bot" />
@@ -34,13 +35,11 @@ const LandingPage = () => {
         <meta name="twitter:url" content={baseUrl} />
         <meta name="twitter:title" content="Unknown Chat Bot | Anonymous Random Chats on Telegram" />
         <meta name="twitter:description" content="Connect with random people worldwide for anonymous chats. No sign-up, no tracking, just instant conversations with complete privacy." />
-        <meta name="twitter:image" content={`${baseUrl}/og-image.jpg`} />
+        <meta name="twitter:image" content={ogImageUrl} />
         
-        {/* LinkedIn */}
+        {/* Additional Meta Tags */}
         <meta property="og:image:type" content="image/jpeg" />
         <meta property="og:locale" content="en_US" />
-        
-        {/* WhatsApp */}
         <meta property="og:image:alt" content="Unknown Chat Bot - Anonymous Conversations on Telegram" />
         
         {/* Additional SEO Tags */}
