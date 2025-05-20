@@ -7,6 +7,9 @@ import Footer from './components/Footer';
 import { Helmet } from 'react-helmet-async'; // Make sure to use React Helmet Async for better performance
 
 const LandingPage = () => {
+  // Define base URL with trailing slash
+  const baseUrl = "https://unknownchatbot.vercel.app";
+  
   return (
     <div className="bg-gradient-to-br from-pink-500 via-rose-500 to-orange-400 min-h-screen">
       {/* SEO Helmet Tags */}
@@ -18,17 +21,20 @@ const LandingPage = () => {
         
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://unknownchatbot.vercel.app/" />
-        <meta property="og:title" content="Unknown Chat Bot | Meet New People Anonymously" />
-        <meta property="og:description" content="Connect with random people worldwide for anonymous chats. No login, complete privacy, and free opposite gender preference." />
-        <meta property="og:image" content="/og-image.jpg" />
+        <meta property="og:url" content={baseUrl} />
+        <meta property="og:title" content="Unknown Chat Bot | Anonymous Random Chats on Telegram" />
+        <meta property="og:description" content="Connect with random people worldwide for anonymous chats. No sign-up needed, select opposite gender preference for free. Private, secure, and instant connections." />
+        <meta property="og:image" content={`${baseUrl}/og-image.jpg`} />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:site_name" content="Unknown Chat Bot" />
         
         {/* Twitter */}
-        <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content="https://unknownchatbot.vercel.app/" />
-        <meta property="twitter:title" content="Unknown Chat Bot | Anonymous Random Chats on Telegram" />
-        <meta property="twitter:description" content="Connect with random people worldwide for anonymous chats. No login, complete privacy, and free opposite gender preference." />
-        <meta property="twitter:image" content="/twitter-image.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:url" content={baseUrl} />
+        <meta name="twitter:title" content="Unknown Chat Bot | Anonymous Random Chats on Telegram" />
+        <meta name="twitter:description" content="Connect with random people worldwide for anonymous chats. No sign-up, no tracking, just instant conversations with complete privacy." />
+        <meta name="twitter:image" content={`${baseUrl}/twitter-image.jpg`} />
         
         {/* Additional SEO Tags */}
         <meta name="keywords" content="anonymous chat, telegram bot, random chat, stranger chat, private messaging, anonymous messaging, online chat, global connections, meet new people, chat bot" />
@@ -37,7 +43,7 @@ const LandingPage = () => {
         <meta name="author" content="Unknown Chat Bot" />
         
         {/* Canonical URL */}
-        <link rel="canonical" href="https://unknownchatbot.vercel.app/" />
+        <link rel="canonical" href={baseUrl} />
         
         {/* Favicon */}
         <link rel="icon" href="/favicon.ico" />
