@@ -34,7 +34,14 @@ const LandingPage = () => {
         <meta name="twitter:url" content={baseUrl} />
         <meta name="twitter:title" content="Unknown Chat Bot | Anonymous Random Chats on Telegram" />
         <meta name="twitter:description" content="Connect with random people worldwide for anonymous chats. No sign-up, no tracking, just instant conversations with complete privacy." />
-        <meta name="twitter:image" content={`${baseUrl}/twitter-image.jpg`} />
+        <meta name="twitter:image" content={`${baseUrl}/og-image.jpg`} />
+        
+        {/* LinkedIn */}
+        <meta property="og:image:type" content="image/jpeg" />
+        <meta property="og:locale" content="en_US" />
+        
+        {/* WhatsApp */}
+        <meta property="og:image:alt" content="Unknown Chat Bot - Anonymous Conversations on Telegram" />
         
         {/* Additional SEO Tags */}
         <meta name="keywords" content="anonymous chat, telegram bot, random chat, stranger chat, private messaging, anonymous messaging, online chat, global connections, meet new people, chat bot" />
